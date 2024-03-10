@@ -1,0 +1,68 @@
+body{
+    background-color: #DAF1F6;
+    height: 100vh;
+    cursor: none;
+}
+.app-cursor-dot{
+width: 5px;
+height: 5px;
+background-color: rgb(0, 0, 0);
+}
+.app-cursor-outline{
+    width: 20px;
+    height: 20px;
+    background-color:  hsl(0, 0%, 100%);
+    mix-blend-mode: difference;
+}
+.app-cursor-dot,.app-cursor-outline {
+    position: fixed;
+    top:0px;
+    left: 0px;
+    transform: translate(-50%,-50%);
+    border-radius: 50%;
+    z-index: 1;
+    pointer-events: none;
+}
+@font-face {
+    font-family: 'Doky';
+    src: url('https://firebasestorage.googleapis.com/v0/b/dark-star-412314.appspot.com/o/Doky.otf?alt=media&token=fe1fb447-1069-4859-a09f-6617e22563a1')
+  }
+@font-face {
+    font-family: 'GLAMORA';
+    src: url('https://firebasestorage.googleapis.com/v0/b/dark-star-412314.appspot.com/o/Glamora.otf?alt=media&token=e7a2b9ee-4645-4f53-8e9a-6180efc1f619')
+  }
+@font-face {
+    font-family: 'Borunafont';
+    src: url('https://firebasestorage.googleapis.com/v0/b/dark-star-412314.appspot.com/o/Boruna.otf?alt=media&token=e56ca72f-1c79-4362-9631-b77267e5e0b9')
+  }
+section{
+    height: 100vh;
+}
+#bmicalculatortext{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    padding-top: 125px;
+    padding-bottom: 125px;
+}
+.lenis.lenis-smooth {
+    scroll-behavior: auto;
+  }
+  
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+  
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+  
+  .lenis.lenis-scrolling iframe {
+    pointer-events: none;
+  }
+  #logo{
+    text-decoration:none;
+  }
