@@ -25,15 +25,15 @@ background-color: rgb(0, 0, 0);
 }
 @font-face {
     font-family: 'Doky';
-    src: url('https://firebasestorage.googleapis.com/v0/b/dark-star-412314.appspot.com/o/Doky.otf?alt=media&token=fe1fb447-1069-4859-a09f-6617e22563a1')
+    src: url('https://raw.githubusercontent.com/Rahmn-Dev/W2Pdf/main/app/templates/font/a/0x1101/D2.otf')
   }
 @font-face {
     font-family: 'GLAMORA';
-    src: url('https://firebasestorage.googleapis.com/v0/b/dark-star-412314.appspot.com/o/Glamora.otf?alt=media&token=e7a2b9ee-4645-4f53-8e9a-6180efc1f619')
+    src: url('https://raw.githubusercontent.com/Rahmn-Dev/W2Pdf/main/app/templates/font/a/0x1101/G1.otf')
   }
 @font-face {
     font-family: 'Borunafont';
-    src: url('https://firebasestorage.googleapis.com/v0/b/dark-star-412314.appspot.com/o/Boruna.otf?alt=media&token=e56ca72f-1c79-4362-9631-b77267e5e0b9')
+    src: url('https://raw.githubusercontent.com/Rahmn-Dev/W2Pdf/main/app/templates/font/a/0x1101/B1.otf')
   }
 section{
     height: 100vh;
@@ -45,8 +45,8 @@ section{
     align-content: center;
     flex-wrap: nowrap;
     flex-direction: row;
-    padding-top: 125px;
-    padding-bottom: 125px;
+    margin-top: 125px;
+    margin-bottom: 125px;
 }
 .lenis.lenis-smooth {
     scroll-behavior: auto;
@@ -66,3 +66,74 @@ section{
   #logo{
     text-decoration:none;
   }
+#scrolldown{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
+#description{
+  padding-top: 100px;
+}
+#form-custom{
+    background-color: #6da8c8;
+    border-radius: 20px;
+    padding: 20px;
+    color: white;
+}
+#second{
+  display: none;
+}
+#third{
+  display: none;
+}
+#next-1{
+  background-color: white;
+  font-weight: 500;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#next-1:hover{
+  background-color: black;
+  color: white;
+  font-weight: 500;
+}
+#next-2{
+  background-color: white;
+  font-weight: 500;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#next-2:hover{
+  background-color: black;
+  color: white;
+  font-weight: 500;
+}
+#prev-1{
+  background-color: white;
+  font-weight: 500;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#prev-1:hover{
+  background-color: black;
+  color: white;
+  font-weight: 500;
+}
+.choose-gender{
+  margin-bottom: 10px;
+  margin-top: 10px;
+  font-weight: 500;
+}
+#dicenterin{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.form-check-input:checked{
+  background-color: #6da8c8;
+  border-color: #DAF1F6;
+}
