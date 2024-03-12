@@ -78,29 +78,61 @@ $("#prev-2").click(function(event) {
 	// document.getElementById("progressBar").style.width = "70%";
 	// $("#progressText").text("Langkah-2");
 })
+$("#next-3").click(function(event) {
+    a = $("#weightinput").val();
+    if (a === "") {
+		event.preventDefault();
+        $("#weightError").text("* Weight Required");
+	}  else if(a <= 0){
+        event.preventDefault()
+        $("#weightError").text("* Weight cannot be under than 0 Kg");
+    } else if(a > 500){
+        event.preventDefault()
+        $("#weightError").text("* Weight cannot be more than 500 Kg");
+    } else{
+        event.preventDefault();
+        $("#weightError").text("");
+		document.getElementById("first").style.display = "none";
+		document.getElementById("second").style.display = "none";
+		document.getElementById("third").style.display = "none";
+		document.getElementById("final").style.display = "block";
+    }
+
+})
+$("#prev-3").click(function(event) {
+    event.preventDefault()
+	document.getElementById("first").style.display = "none";
+	document.getElementById("second").style.display = "none";
+	document.getElementById("third").style.display = "block";
+	document.getElementById("final").style.display = "none";
+	// document.getElementById("progressBar").style.width = "70%";
+	// $("#progressText").text("Langkah-2");
+})
 
 function calculateBMI(height, weight, age, gender) {
     var bmi;
     if (gender === "male") {
-        bmi = (0.5 * weight) / Math.pow(height / 100, 2);
+        bmi = (weight) / Math.pow(height / 100, 2); // Rumus BMI untuk laki-laki
     } else if (gender === "female") {
-        bmi = (0.4 * weight) / Math.pow(height / 100, 2);
+        bmi = (weight) / Math.pow(height / 100, 2); // Rumus BMI untuk perempuan
     } else {
         return null; // Jika gender tidak valid
     }
     return bmi;
 }
-function weightIdeal(weight, height, age){
+function weightIdeal(weight, height, age, bmi){
     var idealWeight;
+
     if (age < 18) {
         idealWeight = 18.5 * Math.pow((height / 100), 2); // Berat ideal untuk anak-anak
     } else {
         idealWeight = 22 * Math.pow((height / 100), 2); // Berat ideal untuk orang dewasa
     }
 
-    if (weight < idealWeight - 2) {
+    var weightStatus;
+    if (bmi < 18.5) {
         weightStatus = 'You are under your ideal weight.';
-    } else if (weight >= idealWeight - 2 && weight <= idealWeight + 2) {
+    } else if (bmi >= 18.5 && bmi <= 24.9) {
         weightStatus = 'You are within your ideal weight range.';
     } else {
         weightStatus = 'You are over your ideal weight.';
@@ -123,114 +155,82 @@ function displayResult(bmi, age) {
     if (age < 18) {
         if (bmi < 15) {
             bmiCategory.textContent = 'Very severely underweight (Child)';
-            bmiExplanation.textContent = 'Your BMI indicates that you are very severely underweight for your age. Please consult a healthcare professional for advice.';
+            bmiExplanation.textContent = 'Your BMI indicates that you are very severely underweight for your age. This level of underweight can lead to serious health issues, including malnutrition and developmental delays. It is crucial to consult a healthcare professional immediately for proper assessment and treatment.';
         } else if (bmi >= 15 && bmi < 16) {
             bmiCategory.textContent = 'Severely underweight (Child)';
-            bmiExplanation.textContent = 'Your BMI indicates that you are severely underweight for your age. Please consult a healthcare professional for advice.';
+            bmiExplanation.textContent = 'Your BMI indicates that you are severely underweight for your age. Severe underweight can impair growth, weaken immune function, and lead to nutritional deficiencies. It is important to seek medical advice to address underlying causes and improve nutritional status.';
         } else if (bmi >= 16 && bmi < 18.5) {
             bmiCategory.textContent = 'Underweight (Child)';
-            bmiExplanation.textContent = 'Your BMI indicates that you are underweight for your age. Please consult a healthcare professional for advice.';
+            bmiExplanation.textContent = 'Your BMI indicates that you are underweight for your age. While mild underweight may not always pose immediate health risks, it can still affect overall health and development. Consider consulting a healthcare professional for guidance on improving nutrition and overall health.';
         } else if (bmi >= 18.5 && bmi < 25) {
             bmiCategory.textContent = 'Normal weight (Child)';
-            bmiExplanation.textContent = 'Your BMI is within the normal range for your age. Keep up the good work!';
+            bmiExplanation.textContent = 'Congratulations! Your BMI is within the normal range for your age. Maintaining a healthy weight is essential for overall health and well-being. Keep up the good work by adopting a balanced diet and staying physically active.';
         } else if (bmi >= 25 && bmi < 30) {
             bmiCategory.textContent = 'Overweight (Child)';
-            bmiExplanation.textContent = 'Your BMI indicates that you are overweight for your age. Please consult a healthcare professional for advice.';
+            bmiExplanation.textContent = 'Your BMI indicates that you are overweight for your age. Excess weight during childhood can increase the risk of various health problems, such as type 2 diabetes, high blood pressure, and cardiovascular disease. Consider seeking guidance from a healthcare professional to develop healthy habits and achieve a healthier weight.';
         } else if (bmi >= 30 && bmi < 35) {
             bmiCategory.textContent = 'Obese Class I (Child)';
-            bmiExplanation.textContent = 'Your BMI indicates that you are obese Class I for your age. Please consult a healthcare professional for advice.';
+            bmiExplanation.textContent = 'Your BMI indicates that you are obese Class I for your age. Obesity during childhood significantly increases the risk of developing serious health conditions, including diabetes, heart disease, and joint problems. It is crucial to seek medical advice and implement lifestyle changes to manage weight and improve health.';
         } else if (bmi >= 35 && bmi < 40) {
             bmiCategory.textContent = 'Obese Class II (Child)';
-            bmiExplanation.textContent = 'Your BMI indicates that you are obese Class II for your age. Please consult a healthcare professional for advice.';
+            bmiExplanation.textContent = 'Your BMI indicates that you are obese Class II for your age. Obesity at this level poses severe health risks and requires immediate attention. It is essential to work with healthcare professionals to develop a comprehensive plan for weight management and overall health improvement.';
         } else {
             bmiCategory.textContent = 'Obese Class III (Child)';
-            bmiExplanation.textContent = 'Your BMI indicates that you are obese Class III for your age. Please consult a healthcare professional for advice.';
+            bmiExplanation.textContent = 'Your BMI indicates that you are obese Class III for your age. This level of obesity is associated with serious health complications and requires urgent medical intervention. It is critical to seek professional help to address weight-related health issues and adopt healthier lifestyle choices.';
         }
     } else {
         if (bmi < 16) {
             bmiCategory.textContent = 'Severely underweight';
-            bmiExplanation.textContent = 'Your BMI indicates that you are severely underweight. Please consult a healthcare professional for advice.';
+            bmiExplanation.textContent = 'Your BMI indicates that you are severely underweight. Severely low body weight in adults can lead to various health complications, including weakened immune system, nutrient deficiencies, and organ damage. It is important to consult a healthcare professional to address underlying causes and develop a treatment plan.';
         } else if (bmi >= 16 && bmi < 17) {
             bmiCategory.textContent = 'Moderately underweight';
-            bmiExplanation.textContent = 'Your BMI indicates that you are moderately underweight. Please consult a healthcare professional for advice.';
+            bmiExplanation.textContent = 'Your BMI indicates that you are moderately underweight. While moderate underweight may not always present immediate health risks, it can still impact overall health and well-being. Consider seeking medical advice to identify underlying causes and develop strategies for healthy weight gain.';
         } else if (bmi >= 17 && bmi < 18.5) {
             bmiCategory.textContent = 'Mildly underweight';
-            bmiExplanation.textContent = 'Your BMI indicates that you are mildly underweight. Please consult a healthcare professional for advice.';
+            bmiExplanation.textContent = 'Your BMI indicates that you are mildly underweight. While mild underweight may not always be cause for concern, it is important to monitor your health and address any potential underlying issues. Consider consulting a healthcare professional for guidance on achieving a healthy weight.';
         } else if (bmi >= 18.5 && bmi < 25) {
             bmiCategory.textContent = 'Normal weight';
-            bmiExplanation.textContent = 'Your BMI is within the normal range. Keep up the good work!';
+            bmiExplanation.textContent = 'Congratulations! Your BMI is within the normal range. Maintaining a healthy weight is important for overall health and well-being. Continue to prioritize healthy eating habits, regular physical activity, and proper self-care.';
         } else if (bmi >= 25 && bmi < 30) {
             bmiCategory.textContent = 'Overweight';
-            bmiExplanation.textContent = 'Your BMI indicates that you are overweight. Please consider a healthier lifestyle.';
+            bmiExplanation.textContent = 'Your BMI indicates that you are overweight. Excess weight can increase the risk of various health conditions, such as heart disease, diabetes, and certain cancers. Consider making lifestyle changes, such as adopting a balanced diet and increasing physical activity, to achieve a healthier weight.';
         } else if (bmi >= 30 && bmi < 35) {
             bmiCategory.textContent = 'Obese Class I';
-            bmiExplanation.textContent = 'Your BMI indicates that you are obese Class I. Please consult a healthcare professional for advice.';
+            bmiExplanation.textContent = 'Your BMI indicates that you are obese Class I. Obesity increases the risk of developing serious health conditions, including heart disease, stroke, and type 2 diabetes. It is important to prioritize weight management through healthy eating habits, regular exercise, and professional guidance.';
         } else if (bmi >= 35 && bmi < 40) {
             bmiCategory.textContent = 'Obese Class II';
-            bmiExplanation.textContent = 'Your BMI indicates that you are obese Class II. Please consult a healthcare professional for advice.';
+            bmiExplanation.textContent = 'Your BMI indicates that you are obese Class II. Obesity at this level significantly impacts health and quality of life. It is crucial to seek medical advice and implement comprehensive lifestyle changes to address weight-related health risks.';
         } else {
             bmiCategory.textContent = 'Obese Class III';
-            bmiExplanation.textContent = 'Your BMI indicates that you are obese Class III. Please consult a healthcare professional for advice.';
+            bmiExplanation.textContent = 'Your BMI indicates that you are obese Class III. This level of obesity poses severe health risks and requires urgent medical attention. It is essential to work closely with healthcare professionals to develop a personalized plan for weight management and overall health improvement.';
         }
     }
 }
 
+
 $("#Sending").click(function(event) {
     event.preventDefault()
-	a = $("#weightinput").val();
+	// a = $("#weightinput").val();
 	b = $("#heightinput").val();
-    heightweightError
-	if (a === "" && b === "") {
+	if (b === "") {
 		event.preventDefault();
-        $("#heightweightError").text("* Weight and Height Required");
+        $("#heightError").text("* Height Required");
 	}
-	else if (a === "") {
-		event.preventDefault();
-        $("#heightweightError").text("* Weight Required");
-	}
-	else if (b === "") {
-		event.preventDefault();
-        $("#heightweightError").text("* Height Required");
-	}
-    else if( a == 0 && b == 0 ){
-        event.preventDefault()
-        $("#heightweightError").text("* Weight and Height cannot be 0");
-    } 
-    else if( a == 0 ){
-        event.preventDefault()
-        $("#heightweightError").text("* Weight cannot be 0");
-    } 
     else if( b == 0 ){
         event.preventDefault()
-        $("#heightweightError").text("* Height cannot be 0");
-    } 
-    else if(a > 500 && b > 500){
-        event.preventDefault()
-        $("#heightweightError").text("* Weight cannot be more than 500 Kg & Height cannot be more than 250 cm");
-    }
-    else if(a > 500){
-        event.preventDefault()
-        $("#heightweightError").text("* Weight cannot be more than 500 Kg");
+        $("#heightError").text("* Height cannot be 0");
     } 
     else if(b > 250){
         event.preventDefault()
-        $("#heightweightError").text("* Height cannot be more than 250 cm");
+        $("#heightError").text("* Height cannot be more than 250 cm");
     }
-    else if(a <= 0 && b <= 0){
-        event.preventDefault()
-        $("#heightweightError").text("* Weight cannot be under than 0 Kg & Height cannot be under than 0 cm");
-    }
-    else if(a <= 0){
-        event.preventDefault()
-        $("#heightweightError").text("* Weight cannot be under than 0 Kg");
-    } 
     else if(b <= 0){
         event.preventDefault()
-        $("#heightweightError").text("* Height cannot be under than 0 cm");
+        $("#heightError").text("* Height cannot be under than 0 cm");
     }
     else{
         event.preventDefault();
-        $("#heightweightError").text("");
+        $("#heightError").text("");
         weight = $("#weightinput").val();
 	    height = $("#heightinput").val();
         console.log("height", height)
@@ -241,14 +241,13 @@ $("#Sending").click(function(event) {
         console.log("gender", gender)
         try {
             var bmi = calculateBMI(height, weight, age, gender);
-            weightIdeal(height, weight, age);
+            weightIdeal(height, weight, age, bmi);
             displayResult(bmi, age, gender);
             document.getElementById("total-results").style.display = "block";
         } catch (error) {
-            
+           console.log(erro) 
         }
     }
-    console.log("running")
     })
     
 });

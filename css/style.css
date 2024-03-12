@@ -23,6 +23,12 @@ background-color: rgb(0, 0, 0);
     z-index: 1;
     pointer-events: none;
 }
+@media (max-width: 768px) {
+  .app-cursor-dot,
+  .app-cursor-outline {
+      display: none; /* Hide cursor elements on smaller screens */
+  }
+}
 @font-face {
     font-family: 'Doky';
     src: url('https://raw.githubusercontent.com/Rahmn-Dev/W2Pdf/main/app/templates/font/a/0x1101/D2.otf')
@@ -68,11 +74,7 @@ section{
   }
 #scrolldown{
   display: flex;
-  align-items: center;
   justify-content: center;
-  align-content: center;
-  flex-wrap: nowrap;
-  flex-direction: row;
 }
 #description{
   padding-top: 100px;
@@ -87,6 +89,9 @@ section{
   display: none;
 }
 #third{
+  display: none;
+}
+#final{
   display: none;
 }
 #next-1{
@@ -144,6 +149,29 @@ section{
   color: white;
   font-weight: 500;
 }
+#prev-3{
+  background-color: white;
+  font-weight: 500;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#prev-3:hover{
+  background-color: black;
+  color: white;
+  font-weight: 500;
+}
+#next-3{
+  background-color: white;
+  font-weight: 500;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#next-3:hover{
+  background-color: black;
+  color: white;
+  font-weight: 500;
+}
+
 .choose-gender{
   margin-bottom: 10px;
   margin-top: 10px;
@@ -161,4 +189,11 @@ section{
 }
 #total-results{
   display:none;
+  padding: 15px;
+}
+#resultContainer{
+  background-color: pink;
+  padding: 20px;
+  border-radius: 20px;
+  color: white;
 }

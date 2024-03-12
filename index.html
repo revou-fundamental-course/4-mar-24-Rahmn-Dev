@@ -53,11 +53,10 @@
             </svg>
           </div>
         </div>
-        <div class="col col-12" id="scrolldown">
-          <div class="row">
+        <div class="col col-12" id="scrolldown" >
+          
             <lord-icon src="https://cdn.lordicon.com/cnzqklvz.json" trigger="loop" delay="2500" stroke="bold" colors="primary:#121331,secondary:#6da8c8" style="width:30px;height:30px"></lord-icon>
-            
-          </div>
+        
         </div>
       </section>
       <!-- end section -->
@@ -136,7 +135,24 @@
                     <lord-icon src="https://cdn.lordicon.com/qxfqqxfz.json" trigger="loop" delay="1500" colors="primary:#daf1f6,secondary:#ffffff" style="width:100px;height:100px"></lord-icon>
                   </div>
                 </div> 
-                <hr>  
+                <hr>     
+                
+                <div class="row" >
+                  <div class="col col-6">
+                    <div class="row" style="margin-left: 5px; margin-right: 5px;">
+                      <a href="#" class="btn" id="prev-2">Back</a>
+                    </div>
+                  </div>
+                  <div class="col col-6">
+                    <div class="row" style="margin-left: 5px; margin-right: 5px;">
+                      <a href="#" class="btn" id="next-3">Next</a>
+                    </div>
+                  </div>
+                   <p class="form-text text-white" id="weightError"></p>
+                </div>
+              </div>
+
+              <div class="mb-3" id="final">
                 <h3 class="text-center choose-gender">Height</h3>
                 <div class="row">
                   <div class=" col-4 " id="dicenterin">
@@ -150,7 +166,7 @@
                 <div class="row" >
                   <div class="col col-6">
                     <div class="row" style="margin-left: 5px; margin-right: 5px;">
-                      <a href="#" class="btn" id="prev-2">Back</a>
+                      <a href="#" class="btn" id="prev-3">Back</a>
                     </div>
                   </div>
                   <div class="col col-6">
@@ -158,7 +174,7 @@
                       <input type="submit" name="submit" id="Sending" value="Check Results" class="btn" />
                     </div>
                   </div>
-                   <p class="form-text text-white" id="heightweightError"></p>
+                   <p class="form-text text-white" id="heightError"></p>
                 </div>
               </div>
               
@@ -167,7 +183,7 @@
         </div>
         <div class="row" id="total-results">
           <div class="result" id="resultContainer" >
-            <h3>Result:</h3>
+            <h2>Result</h2>
             <p>Your BMI: <span id="bmiResult"></span></p>
             <p>Category: <span id="bmiCategory"></span></p>
             <p>Explanation: <span id="bmiExplanation"></span></p>
