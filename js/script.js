@@ -153,6 +153,7 @@ function displayResult(bmi, age , gender) {
     genderis.textContent = gender;
     resultContainer.style.display = 'block';
 
+
     bmiResult.textContent = bmi.toFixed(2);
 
     if (age < 18) {
@@ -209,7 +210,160 @@ function displayResult(bmi, age , gender) {
         }
     }
 }
+function recommendation(bmi, age){
+    var jagakesehatan = document.getElementById('jagakesehatan');
+    var banyakvitamin = document.getElementById('bnykvitamin');
+    var banyakbuah = document.getElementById('bnykbuah');
+    var banyaksayur = document.getElementById('bnyksyur');
+    var tidur = document.getElementById('tidur');
+    var olahraga = document.getElementById('olahraga');
+    var pushup = document.getElementById('pushup');
+    var bersepeda = document.getElementById('bersepeda');
+    var banyakminum = document.getElementById('bnykmnm');
+    var banyakmakan = document.getElementById('bnykmkn');
+    var checkdoctor = document.getElementById('ambulance');
+    var consultation = document.getElementById('consultation');
+    console.log("fungsi recomendation",age)
+       // Semua elemen diatur ke tampilan default terlebih dahulu
+       jagakesehatan.style.display = "none";
+       banyakvitamin.style.display = "none";
+       banyakbuah.style.display = "none";
+       banyaksayur.style.display = "none";
+       tidur.style.display = "none";
+       olahraga.style.display = "none";
+       pushup.style.display = "none";
+       bersepeda.style.display = "none";
+       banyakminum.style.display = "none";
+       banyakmakan.style.display = "none";
+       checkdoctor.style.display = "none";
+       consultation.style.display = "none";
 
+    // Menentukan rekomendasi berdasarkan kategori BMI dan usia
+    if (age < 18) {
+        if (bmi < 15) {
+            banyakvitamin.style.display = "flex";
+            banyakbuah.style.display = "flex";
+            banyaksayur.style.display = "flex";
+            tidur.style.display = "flex";
+            olahraga.style.display = "flex";
+            pushup.style.display = "flex";
+            bersepeda.style.display = "flex";
+            banyakminum.style.display = "flex";
+            banyakmakan.style.display = "flex";
+            checkdoctor.style.display = "flex";
+            consultation.style.display = "flex";
+        } else if (bmi >= 15 && bmi < 16) {
+            banyakvitamin.style.display = "flex";
+            banyakbuah.style.display = "flex";
+            banyaksayur.style.display = "flex";
+            tidur.style.display = "flex";
+            olahraga.style.display = "flex";
+            pushup.style.display = "flex";
+            bersepeda.style.display = "flex";
+            banyakminum.style.display = "flex";
+            banyakmakan.style.display = "flex";
+            consultation.style.display = "flex";
+        } else if (bmi >= 16 && bmi < 18.5) {
+            banyakvitamin.style.display = "flex";
+            banyakbuah.style.display = "flex";
+            banyaksayur.style.display = "flex";
+            tidur.style.display = "flex";
+            olahraga.style.display = "flex";
+            banyakminum.style.display = "flex";
+            banyakmakan.style.display = "flex";
+        } else if (bmi >= 18.5 && bmi < 25) {
+            jagakesehatan.style.display = "flex";
+        } else if (bmi >= 25 && bmi < 30) {
+            olahraga.style.display = "flex";
+            banyakminum.style.display = "flex";
+            pushup.style.display = "flex";
+            bersepeda.style.display = "flex";
+        } else if (bmi >= 30 && bmi < 35) {
+            olahraga.style.display = "flex";
+            banyakminum.style.display = "flex";
+            pushup.style.display = "flex";
+            bersepeda.style.display = "flex";
+            checkdoctor.style.display = "flex";
+            consultation.style.display = "flex";
+        } else if (bmi >= 35 && bmi < 40) {
+            olahraga.style.display = "flex";
+            banyakminum.style.display = "flex";
+            pushup.style.display = "flex";
+            bersepeda.style.display = "flex";
+            checkdoctor.style.display = "flex";
+            consultation.style.display = "flex";
+        } else {
+            olahraga.style.display = "flex";
+            banyakminum.style.display = "flex";
+            pushup.style.display = "flex";
+            bersepeda.style.display = "flex";
+            checkdoctor.style.display = "flex";
+            consultation.style.display = "flex";
+        }
+    } else {
+        if (bmi < 16) {
+            banyakvitamin.style.display = "flex";
+            banyakbuah.style.display = "flex";
+            banyaksayur.style.display = "flex";
+            tidur.style.display = "flex";
+            olahraga.style.display = "flex";
+            pushup.style.display = "flex";
+            bersepeda.style.display = "flex";
+            banyakminum.style.display = "flex";
+            banyakmakan.style.display = "flex";
+            checkdoctor.style.display = "flex";
+            consultation.style.display = "flex";
+        } else if (bmi >= 16 && bmi < 17) {
+            banyakvitamin.style.display = "flex";
+            banyakbuah.style.display = "flex";
+            banyaksayur.style.display = "flex";
+            tidur.style.display = "flex";
+            olahraga.style.display = "flex";
+            pushup.style.display = "flex";
+            bersepeda.style.display = "flex";
+            banyakminum.style.display = "flex";
+            banyakmakan.style.display = "flex";
+            consultation.style.display = "flex";
+        } else if (bmi >= 17 && bmi < 18.5) {
+            banyakvitamin.style.display = "flex";
+            banyakbuah.style.display = "flex";
+            banyaksayur.style.display = "flex";
+            tidur.style.display = "flex";
+            olahraga.style.display = "flex";
+            banyakminum.style.display = "flex";
+            banyakmakan.style.display = "flex";
+        } else if (bmi >= 18.5 && bmi < 25) {
+            jagakesehatan.style.display = "flex";
+        } else if (bmi >= 25 && bmi < 30) {
+            olahraga.style.display = "flex";
+            banyakminum.style.display = "flex";
+            pushup.style.display = "flex";
+            bersepeda.style.display = "flex";
+            consultation.style.display = "flex";
+        } else if (bmi >= 30 && bmi < 35) {
+            olahraga.style.display = "flex";
+            banyakminum.style.display = "flex";
+            pushup.style.display = "flex";
+            bersepeda.style.display = "flex";
+            checkdoctor.style.display = "flex";
+            consultation.style.display = "flex";
+        } else if (bmi >= 35 && bmi < 40) {
+            olahraga.style.display = "flex";
+            banyakminum.style.display = "flex";
+            pushup.style.display = "flex";
+            bersepeda.style.display = "flex";
+            checkdoctor.style.display = "flex";
+            consultation.style.display = "flex";
+        } else {
+            olahraga.style.display = "flex";
+            banyakminum.style.display = "flex";
+            pushup.style.display = "flex";
+            bersepeda.style.display = "flex";
+            checkdoctor.style.display = "flex";
+            consultation.style.display = "flex";
+        }
+    }
+}
 
 $("#Sending").click(function(event) {
     event.preventDefault()
@@ -245,10 +399,11 @@ $("#Sending").click(function(event) {
         try {
             var bmi = calculateBMI(height, weight, age, gender);
             weightIdeal(height, weight, age, bmi);
+            recommendation(bmi, age);
             displayResult(bmi, age, gender);
             document.getElementById("total-results").style.display = "block";
         } catch (error) {
-           console.log(erro) 
+           console.log(error) 
         }
     }
     })
