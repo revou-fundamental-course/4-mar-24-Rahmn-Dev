@@ -142,12 +142,15 @@ function weightIdeal(weight, height, age, bmi){
     weightStatusContainer.textContent = weightStatus;
 }
 
-function displayResult(bmi, age) {
+function displayResult(bmi, age , gender) {
     var resultContainer = document.getElementById('resultContainer');
     var bmiResult = document.getElementById('bmiResult');
     var bmiCategory = document.getElementById('bmiCategory');
     var bmiExplanation = document.getElementById('bmiExplanation');
-
+    var ageis = document.getElementById('age');
+    ageis.textContent = age + ' Years Old';
+    var genderis = document.getElementById('gender');
+    genderis.textContent = gender;
     resultContainer.style.display = 'block';
 
     bmiResult.textContent = bmi.toFixed(2);

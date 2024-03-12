@@ -42,7 +42,7 @@ background-color: rgb(0, 0, 0);
     src: url('https://raw.githubusercontent.com/Rahmn-Dev/W2Pdf/main/app/templates/font/a/0x1101/B1.otf')
   }
 section{
-    height: 100vh;
+    height: 120vh;
 }
 #bmicalculatortext{
     display: flex;
@@ -188,12 +188,25 @@ section{
   border-color: #DAF1F6;
 }
 #total-results{
-  display:none;
+  display: block;
   padding: 15px;
 }
 #resultContainer{
+  
   background-color: pink;
   padding: 20px;
   border-radius: 20px;
   color: white;
+}
+#weightStatus{
+  background-color: white;
+  color: pink;
+  padding: 5px;
+  border-radius: 5px;
+}
+#gender{
+  background-color: white;
+  color: pink;
+  /* padding: 5px; */
+  border-radius: 5px;
 }
