@@ -206,7 +206,18 @@ section{
 }
 #gender{
   background-color: white;
-  color: pink;
-  /* padding: 5px; */
+  color: #ffc0cb;
+  padding: 5px 8px 5px 8px;
   border-radius: 5px;
+  text-transform: capitalize;
+}
+#bground{
+  background-color: white;
+  color: pink;
+  margin: 8px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 2px 8px 2px;;
 }
