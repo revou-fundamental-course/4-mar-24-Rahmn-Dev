@@ -225,18 +225,10 @@ function recommendation(bmi, age){
     var consultation = document.getElementById('consultation');
     console.log("fungsi recomendation",age)
        // Semua elemen diatur ke tampilan default terlebih dahulu
-       jagakesehatan.style.display = "none";
-       banyakvitamin.style.display = "none";
-       banyakbuah.style.display = "none";
-       banyaksayur.style.display = "none";
-       tidur.style.display = "none";
-       olahraga.style.display = "none";
-       pushup.style.display = "none";
-       bersepeda.style.display = "none";
-       banyakminum.style.display = "none";
-       banyakmakan.style.display = "none";
-       checkdoctor.style.display = "none";
-       consultation.style.display = "none";
+    var allElements = [jagakesehatan, banyakvitamin, banyakbuah, banyaksayur, tidur, olahraga, pushup, bersepeda, banyakminum, banyakmakan, checkdoctor, consultation];
+    allElements.forEach(function(element) {
+        element.style.display = 'none';
+    });
 
     // Menentukan rekomendasi berdasarkan kategori BMI dan usia
     if (age < 18) {

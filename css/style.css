@@ -212,12 +212,27 @@ section{
   text-transform: capitalize;
 }
 .bground{
-  background-color: white;
+  background-color: rgb(0, 0, 0);
   color: pink;
   margin: 8px;
   border-radius: 10px;
-  display: flex;
+  /* display: flex; */
   align-items: center;
   justify-content: center;
-  padding: 8px 2px 8px 2px;;
+  padding: 8px 2px 8px 2px;
+  position: relative;
+  display: inline-block;
+}
+.bground:hover::after {
+  content: attr(title);
+  position: absolute;
+  background-color: black;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
 }
