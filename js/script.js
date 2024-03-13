@@ -3,7 +3,7 @@ $( document ).ready(function() {
 var card = document.getElementById("card-1");
 var card2 = document.getElementById("card-2");
 
-// Menambahkan event listener untuk 'click'
+// Menambahkan event listener untuk 'click' pada card
 card.addEventListener("click", function() {
   // Mendapatkan input radio di dalam card
   var radio = document.getElementById("male");
@@ -14,6 +14,7 @@ card.addEventListener("click", function() {
     radio.click();
   }
 });
+ // Menambahkan event listener untuk 'click' pada card2
 card2.addEventListener("click", function() {
     // Mendapatkan input radio di dalam card
     var radio2 = document.getElementById("female");
@@ -25,10 +26,9 @@ card2.addEventListener("click", function() {
     }
   });
 
-
+ // Event handler untuk tombol "Next" pada langkah 1
   $("#next-1").click(function(event) {
     if (!$('#male').is(':checked') && !$('#female').is(':checked')) {
-        // Prevent the default action of the click event
         event.preventDefault();
         $("#genderError").text("* Gender is required");
 	} else {
@@ -42,6 +42,8 @@ card2.addEventListener("click", function() {
 
 	}
 })
+
+ // Event handler untuk tombol "Previous" pada langkah 2
 $("#prev-1").click(function(event) {
     event.preventDefault();
     $("#ageError").text("");
@@ -50,6 +52,8 @@ $("#prev-1").click(function(event) {
 	// document.getElementById("progressBar").style.width = "40%";
 	// $("#progressText").text("Langkah-1");
 })
+
+ // Event handler untuk tombol "Next" pada langkah 2
 $("#next-2").click(function(event) {
     var inputAge = $("#ageinput").val().trim();
     if (inputAge === "" ){
@@ -70,6 +74,8 @@ $("#next-2").click(function(event) {
     }
 
 })
+
+ // Event handler untuk tombol "Previous" pada langkah 3
 $("#prev-2").click(function(event) {
     event.preventDefault()
 	document.getElementById("first").style.display = "none";
@@ -78,6 +84,8 @@ $("#prev-2").click(function(event) {
 	// document.getElementById("progressBar").style.width = "70%";
 	// $("#progressText").text("Langkah-2");
 })
+
+ // Event handler untuk tombol "Next" pada langkah 3
 $("#next-3").click(function(event) {
     a = $("#weightinput").val();
     if (a === "") {
@@ -99,6 +107,7 @@ $("#next-3").click(function(event) {
     }
 
 })
+// Event handler untuk tombol "Previous" pada langkah 4
 $("#prev-3").click(function(event) {
     event.preventDefault()
 	document.getElementById("first").style.display = "none";
@@ -109,6 +118,7 @@ $("#prev-3").click(function(event) {
 	// $("#progressText").text("Langkah-2");
 })
 
+// Fungsi untuk menghitung BMI
 function calculateBMI(height, weight, age, gender) {
     var bmi;
     if (gender === "male") {
@@ -120,6 +130,8 @@ function calculateBMI(height, weight, age, gender) {
     }
     return bmi;
 }
+
+// Fungsi untuk menghitung berat badan ideal
 function weightIdeal(weight, height, age, bmi){
     var idealWeight;
 
@@ -141,7 +153,7 @@ function weightIdeal(weight, height, age, bmi){
     var weightStatusContainer = document.getElementById('weightStatus');
     weightStatusContainer.textContent = weightStatus;
 }
-
+ // Fungsi untuk menampilkan hasil BMI
 function displayResult(bmi, age , gender) {
     var resultContainer = document.getElementById('resultContainer');
     var bmiResult = document.getElementById('bmiResult');
@@ -155,7 +167,7 @@ function displayResult(bmi, age , gender) {
 
 
     bmiResult.textContent = bmi.toFixed(2);
-
+ // Logika untuk menentukan kategori BMI dan penjelasannya
     if (age < 18) {
         if (bmi < 15) {
             bmiCategory.textContent = 'Very severely underweight (Child)';
@@ -210,6 +222,8 @@ function displayResult(bmi, age , gender) {
         }
     }
 }
+
+// Fungsi untuk memberikan rekomendasi
 function recommendation(bmi, age){
     var jagakesehatan = document.getElementById('jagakesehatan');
     var banyakvitamin = document.getElementById('bnykvitamin');
@@ -357,6 +371,7 @@ function recommendation(bmi, age){
     }
 }
 
+  // Event handler untuk tombol "Send" pada langkah 5
 $("#Sending").click(function(event) {
     event.preventDefault()
 	// a = $("#weightinput").val();
